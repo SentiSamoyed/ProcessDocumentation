@@ -16,7 +16,7 @@ sentistrength.SentimentWords,x,,,,,,,,,,,,,,,,,,,,,,,,,,x,x,
 sentistrength.QuestionWords,,,,,,,,,,x,,,,,,,,,,,,,,,,,,,
 sentistrength.Lemmatiser,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 sentistrength.UnusedTermsClassificationIndex,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-sentistrength.Corpus,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+sentistrength.Corpus,,,,,,,,,,,x,x,x,,,,,,,,x,x,x,x,,,x,,x
 sentistrength.Paragraph,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 sentistrength.Sentence,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 sentistrength.Term,,,x,,,x,x,,x,,,,,,,,,,,,,,,,,,x,,
