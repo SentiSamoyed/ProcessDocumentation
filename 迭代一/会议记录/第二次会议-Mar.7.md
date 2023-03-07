@@ -26,7 +26,7 @@ DDL 为明天晚上
 | Paragraph                | 段落        |
 | Sentence                 | 语句        |
 | Idiom                    | 习语        |
-| Lemmatization            | 词性还原    |
+| Lemmatization            | 词形还原    |
 | correlation              | 相关系数    |
 | Corpus                   | 语料库      |
 | Classification / Class   | 分类        |
