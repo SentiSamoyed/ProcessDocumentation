@@ -87,7 +87,7 @@ import java.io.FileInputStream;
 
 > 统计 checkstyle 漏报的缺陷数量（即 checkstyle 没有报告但是开发人员认为是一个缺陷，例如：功能缺陷），并举例分析 checkstyle 漏报的缺陷产生的原因
 
-### 6.1 String和StringBuilder
+### 6.1 冗余的StringBuilder和toString()
 
 ```java
 System.out.println((new StringBuilder("Could not find emoticon file: ")).append(sSourceFile).toString());
@@ -114,3 +114,24 @@ if (!sLine.equals(""))
 ```
 
 checkstyle作为代码静态分析工具，可能没有考虑到字符串比较可能带来的漏洞，而只是单纯检查书写格式等基本代码规范。
+
+### 6.3 在循环中的字符串拼接
+
+```java
+String sTranslated = "";
+for (int i = 1; i <= this.igSentenceCount; ++i) {
+	sTranslated = sTranslated + this.sentence[i].getTranslatedSentence();
+}
+return sTranslated;
+```
+
+在如上代码中，使用了循环中的字符串串联 '+' ，应该改为StringBuilder和append()。
+
+```java
+StringBuilder sTranslated = new StringBuilder();
+for (int i = 1; i <= this.igSentenceCount; ++i) {
+	sTranslated.append(this.sentence[i].getTranslatedSentence());
+}
+return sTranslated.toString();
+```
+
