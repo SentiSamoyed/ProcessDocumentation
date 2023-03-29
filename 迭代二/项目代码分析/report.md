@@ -163,7 +163,7 @@ int[] igNegClass;
 
 ### 3.7 Coding
 
-### 3.7.1 VariableDeclarationUsageDistance
+#### 3.7.1 VariableDeclarationUsageDistance
 
 警告内容：变量‘wTermStrengthWriter’声明及第一次使用距离4行（最多：3行）。若需存储该变量的值，请将其声明为final的。3行为google_checks定义。修改前：
 
@@ -186,7 +186,66 @@ BufferedWriter wTermStrengthWriter = new BufferedWriter(new FileWriter((new Stri
 options.printClassificationOptionsHeadings(wResultsWriter);
 ~~~
 
----
+#### 3.7.2 OverloadMethodsDeclarationOrder
+
+警告内容：所有的重载方法都应该相邻放置。在相同类型的重载方法之间放置非重载方法是违反的。修改前：
+
+```java
+public boolean setSentiment(String sWord, int iNewSentiment) {
+	...
+}
+
+// 其他非重载方法
+...
+    
+public void setSentiment(int iWordID, int iNewSentiment) {
+    ...
+}
+```
+
+修改后：
+
+```java
+public boolean setSentiment(String sWord, int iNewSentiment) {
+	...
+}
+  
+public void setSentiment(int iWordID, int iNewSentiment) {
+    ...
+}
+```
+
+#### 3.7.3 MissingSwitchDefault
+
+警告内容：Switch 块未定义 default。修改前：
+
+```java
+switch (iLastCharType) {
+        case 1:
+          this.codeWord(sWordAndPunctuation);
+          break;
+        case 2:
+          this.codePunctuation(sWordAndPunctuation);
+          break;
+      }
+```
+
+修改后：
+
+```java
+switch (iLastCharType) {
+        case 1:
+          this.codeWord(sWordAndPunctuation);
+          break;
+        case 2:
+          this.codePunctuation(sWordAndPunctuation);
+          break;
+        default:
+          throw new IllegalStateException("Unexpected value: " + iLastCharType);
+      }
+```
+
+
 
 以下为加分点
 
