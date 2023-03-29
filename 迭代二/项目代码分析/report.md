@@ -1,4 +1,4 @@
-CheckStyle结果统计与分析报告
+# CheckStyle结果统计与分析报告
 
 + 杜威 201830006
 + 陈骏 201250068
@@ -43,9 +43,35 @@ CheckStyle结果统计与分析报告
    */
 ~~~
 
+#### 3.1.2 NonEmptyAtclauseDescription
+
+警告内容：@标签应有非空说明。修改前
+
+```java
+  /**
+   * 获取习语的情感值。<br>
+   *
+   * @param sPhrase 习语
+   * @return 情感值
+   * @deprecated 
+   */
+```
+
+修改后：
+
+```java
+  /**
+   * 获取习语的情感值。<br>
+   *
+   * @param sPhrase 习语
+   * @return 情感值
+   * @deprecated 已弃用
+   */
+```
+
 ### 3.2 Imports
 
-**3.2.1 AvoidStarImport**
+#### **3.2.1 AvoidStarImport**
 
 警告内容：不应该使用 ''.*'' 形式的导入。修改前：
 
@@ -134,8 +160,6 @@ catch (NumberFormatException numberformatexception) {
 	numberformatexception.printStackTrace();
 }
 ~~~
-
-
 
 ### 3.4 Size Violations
 
