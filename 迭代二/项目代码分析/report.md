@@ -167,7 +167,31 @@ catch (NumberFormatException numberformatexception) {
 
 ### 3.5 Whitespace
 
+#### 3.5.1 OperatorWrap
 
+警告内容：‘+’应该另起一行
+
+~~~java
+ wWriter.write("\t" + iMultiOptimisations +
+          "\t" + this.bgReduceNegativeEmotionInQuestionSentences +
+          "\t" + this.bgMissCountsAsPlus2 +
+		// etc.
+);
+~~~
+
+将'+'另起一行。修改后：
+
+~~~java
+wWriter.write("\t" + iMultiOptimisations
+		+ "\t" + this.bgReduceNegativeEmotionInQuestionSentences
+		+ "\t" + this.bgMissCountsAsPlus2
+ 		+ "\t" + this.bgYouOrYourIsPlus2UnlessSentenceNegative
+		+ "\t" + this.bgExclamationInNeutralSentenceCountsAsPlus2
+ 		+ "\t" + this.bgUseIdiomLookupTable
+		+ "\t" + this.igMoodToInterpretNeutralEmphasis
+		// etc.
+);
+~~~
 
 ### 3.6 Miscellaneous
 
