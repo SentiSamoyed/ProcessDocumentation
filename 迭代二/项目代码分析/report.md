@@ -334,7 +334,17 @@ iFileTrinary = Integer.parseInt(sData[0].trim());// 以制表符分割的第一�
 
 > 举例分析新增的警告，是因为什么原因引起的，为什么修改，或为什么不修改
 
+### 5.1 ParamterName&&LocalVariableName
 
+由于SentiStrength源码的变量声明没有采用驼峰命名法，将变量类型以缩写（String->s，int->i，float->f）添加在变量名称前面，整体项目中风格统一，不进行修改。
+
+### 5.2 AbbreviationAsWordInName
+
+由于变量声明中存在多于一个的连续大写字母，如ID等，认为是专有名词缩写，不进行修改。
+
+### 5.3 LineLength
+
+由于代码的逻辑过于复杂，块嵌套，变量命名复杂导致一行代码内容较长。修改逻辑与命名会影响代码可读性，不进行修改。
 
 ## 6 checkstyle漏报的缺陷
 
