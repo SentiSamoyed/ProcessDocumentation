@@ -161,13 +161,9 @@ catch (NumberFormatException numberformatexception) {
 }
 ~~~
 
-### 3.4 Size Violations
+### 3.4 Whitespace
 
-
-
-### 3.5 Whitespace
-
-#### 3.5.1 OperatorWrap
+#### 3.4.1 OperatorWrap
 
 警告内容：‘+’应该另起一行
 
@@ -193,9 +189,9 @@ wWriter.write("\t" + iMultiOptimisations
 );
 ~~~
 
-### 3.6 Miscellaneous
+### 3.5 Miscellaneous
 
-#### 3.6.1 ArrayTypeStyle
+#### 3.5.1 ArrayTypeStyle
 
 警告内容：数组大括号位置错误。修改前：
 
@@ -209,9 +205,9 @@ int igNegClass[];
 int[] igNegClass;
 ~~~
 
-### 3.7 Coding
+### 3.6 Coding
 
-#### 3.7.1 VariableDeclarationUsageDistance
+#### 3.6.1 VariableDeclarationUsageDistance
 
 警告内容：变量‘wTermStrengthWriter’声明及第一次使用距离4行（最多：3行）。若需存储该变量的值，请将其声明为final的。3行为google_checks定义。修改前：
 
@@ -234,7 +230,7 @@ BufferedWriter wTermStrengthWriter = new BufferedWriter(new FileWriter((new Stri
 options.printClassificationOptionsHeadings(wResultsWriter);
 ~~~
 
-#### 3.7.2 OverloadMethodsDeclarationOrder
+#### 3.6.2 OverloadMethodsDeclarationOrder
 
 警告内容：所有的重载方法都应该相邻放置。在相同类型的重载方法之间放置非重载方法是违反的。修改前：
 
@@ -263,7 +259,7 @@ public void setSentiment(int iWordID, int iNewSentiment) {
 }
 ```
 
-#### 3.7.3 MissingSwitchDefault
+#### 3.6.3 MissingSwitchDefault
 
 警告内容：Switch 块未定义 default。修改前：
 
@@ -292,10 +288,6 @@ switch (iLastCharType) {
           throw new IllegalStateException("Unexpected value: " + iLastCharType);
       }
 ```
-
-
-
-以下为加分点
 
 ## 4 checkstyle工具的缺陷
 
