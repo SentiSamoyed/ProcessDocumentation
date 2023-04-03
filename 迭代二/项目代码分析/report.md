@@ -1,8 +1,6 @@
 # CheckStyle结果统计与分析报告
 
-+ 杜威 201830006
-+ 陈骏 201250068
-+ 徐浩钦 201250067
+[TOC]
 
 ## 1 报告间的差异
 
@@ -44,13 +42,39 @@
 | coding.MissingSwitchDefaultCheck                 | 1          | 0          |
 | AvoidEscapedUnicodeCharactersCheck               | 1          | 1          |
 
-
-
 ## 2 警告数量类型与数量
 
 > 统计修改的（closed）、新增的（new）、一直存在的（open）的 checkstyle 中警告 （包括警告的属性、数量等）
 
-
+| 警告类型                            | closed | open | new  |
+| ----------------------------------- | ------ | ---- | ---- |
+| Indentation                         | 1556   | 1    | 0    |
+| NeedBraces                          | 352    | 0    | 0    |
+| WhitespaceAround                    | 504    | 0    | 0    |
+| WhitespaceAfter                     | 592    | 0    | 0    |
+| AbbreviationAsWordInName            | 3      | 71   | 0    |
+| LocalVariableName                   | 7      | 427  | 0    |
+| LineLength                          | 97     | 423  | 0    |
+| LeftCurly                           | 428    | 0    | 0    |
+| ParameterName                       | 0      | 242  | 0    |
+| RequireEmptyLineBeforeBlockTagGroup | 143    | 0    | 0    |
+| SummaryJavadoc                      | 353    | 0    | 0    |
+| RightCurlySame                      | 61     | 0    | 0    |
+| CustomImportOrder                   | 19     | 1    | 0    |
+| AvoidStarImport                     | 12     | 0    | 0    |
+| OperatorWrap                        | 20     | 0    | 0    |
+| ArrayTypeStyle                      | 121    | 0    | 0    |
+| OverloadMethodsDeclarationOrder     | 5      | 0    | 0    |
+| MethodName                          | 2      | 2    | 0    |
+| VariableDeclarationUsageDistance    | 9      | 4    | 0    |
+| EmptyCatchBlock                     | 3      | 0    | 0    |
+| EmptyLineSeparator                  | 6      | 0    | 0    |
+| MemberName                          | 0      | 6    | 0    |
+| NonEmptyAtclauseDescription         | 1      | 0    | 0    |
+| JavadocTagContinuationIndentation   | 0      | 3    | 0    |
+| MultipleVariableDeclarations        | 3      | 0    | 0    |
+| MissingSwitchDefault                | 1      | 0    | 0    |
+| AvoidEscapedUnicodeCharacters       | 0      | 1    | 0    |
 
 ## 3 警告的修改
 
@@ -107,7 +131,7 @@
 
 ### 3.2 Imports
 
-#### **3.2.1 AvoidStarImport**
+#### 3.2.1 AvoidStarImport
 
 警告内容：不应该使用 ''.*'' 形式的导入。修改前：
 
@@ -126,7 +150,7 @@ import java.io.FileInputStream;
 
 #### 3.2.2 CustomImportOrder
 
-##### 3.2.2.1
+**3.2.2.1**
 
 警告内容：导入语句字典序错误。修改前：
 
@@ -144,7 +168,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 ~~~
 
-##### 3.2.2.2
+**3.2.2.2**
 
 警告内容：导入组之前的额外空行。修改前：
 
