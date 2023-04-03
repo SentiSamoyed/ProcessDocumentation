@@ -14,6 +14,38 @@
 
 在最后一次报告中，第一次报告中最长出现的 Coding, Block Checks 类型错误全部被改正了。最后仍然存在的警告类型一般是两种：变量命名警告、本行字符数超过 100 个警告。经过讨论后决定暂不修改变量名。
 
+| 警告类型                                         | 修改前数量 | 修改后数量 |
+| ------------------------------------------------ | ---------- | ---------- |
+| indentation.IndentationCheck                     | 1557       | 1          |
+| blocks.NeedBracesCheck                           | 352        | 0          |
+| whitespace.WhitespaceAroundCheck                 | 504        | 0          |
+| whitespace.WhitespaceAfterCheck                  | 592        | 0          |
+| naming.AbbreviationAsWordInNameCheck             | 74         | 71         |
+| naming.LocalVariableNameCheck                    | 434        | 427        |
+| sizes.LineLengthCheck                            | 520        | 423        |
+| blocks.LeftCurlyCheck                            | 428        | 0          |
+| naming.ParameterNameCheck                        | 242        | 242        |
+| javadoc.RequireEmptyLineBeforeBlockTagGroupCheck | 143        | 0          |
+| javadoc.SummaryJavadocCheck                      | 353        | 352        |
+| RightCurlySame                                   | 61         | 0          |
+| imports.CustomImportOrderCheck                   | 20         | 1          |
+| imports.AvoidStarImportCheck                     | 12         | 0          |
+| whitespace.OperatorWrapCheck                     | 20         | 0          |
+| ArrayTypeStyleCheck                              | 121        | 0          |
+| coding.OverloadMethodsDeclarationOrderCheck      | 5          | 0          |
+| naming.MethodNameCheck                           | 4          | 2          |
+| coding.VariableDeclarationUsageDistanceCheck     | 13         | 4          |
+| blocks.EmptyCatchBlockCheck                      | 3          | 0          |
+| whitespace.EmptyLineSeparatorCheck               | 6          | 0          |
+| naming.MemberNameCheck                           | 6          | 6          |
+| javadoc.NonEmptyAtclauseDescriptionCheck         | 1          | 0          |
+| javadoc.JavadocTagContinuationIndentationCheck   | 3          | 3          |
+| coding.MultipleVariableDeclarationsCheck         | 3          | 0          |
+| coding.MissingSwitchDefaultCheck                 | 1          | 0          |
+| AvoidEscapedUnicodeCharactersCheck               | 1          | 1          |
+
+
+
 ## 2 警告数量类型与数量
 
 > 统计修改的（closed）、新增的（new）、一直存在的（open）的 checkstyle 中警告 （包括警告的属性、数量等）
