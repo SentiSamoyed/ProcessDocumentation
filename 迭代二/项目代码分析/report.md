@@ -620,3 +620,90 @@ CheckStyle对变量声明之后的第一次调用距离报错，同时对于if-e
 ### 6.9 Unused import statement
 
 CheckStyle对没有使用的import的类不报Warning。
+
+## 7 CheckStyle 与其他工具(PMD)的对比
+
+PMD是一款非编译型的，免费的针对Java的源码静态分析工具，根据自带的或用户自定义的XML规则进行分析。其中，PMD自带的规则包括bestpractices等六种规则，对源码分析共产生2825个错误。
+
+| <span style="display:inline-block;width:90px">规则</span>   | <span style="display:inline-block;width:70px">警告类型</span> | <span style="display:inline-block;width:70px">警告内容</span> |<span style="display:inline-block;width:70px">警告数量</span> | 警告原由                                                     |
+| ------------- | ----------------------------------- | -------------------------- | ------------------------------------ | -------------------------------------------------------------------- |
+| bestpractices | Error    | AvoidReassigningParameters | 9        | 函数体内对传入参数进行赋值                                   |
+|               |          | SystemPrintln              | 272      | 使用了System.out/err.prinln函数，PMD认为程序信息应该由日志打印 |
+|               | Warning  | AvoidPrintStackTrace | 62 | PMD推荐使用LoggerCall而不是Java自带的异常捕获 |
+|               |          | ForLoopCanBeForeach | 4 | 对于仅用下标来获取数组元素的可以使用Foreach方法 |
+|               |          | LiteralsFirstInComparisons | 166 | 字符串直接进行比较可能会出现NullPointerException异常 |
+|               |          | MethodReturnsInternalArray | 2 | 函数返回对象的成员变量数组 |
+|               |          | PositionLiteralsFirstInCaseInsensitiveComparisons | 1 | PMD6.24.0修改为deprecated，PM7.0.0之后替换为LiteralsFirstInComparisons |
+|               |          | PositionLiteralsFirstInComparisions | 42 | 同PositionLiteralsFirstInCaseInsensitiveComparisons |
+|               |          | UnusedAssignment | 47 | 变量赋值后未使用就再次赋值 |
+|               |          | UnusedLocalVariables | 5 | 未使用的局部变量 |
+|               |          | UnusedPrivateField | 3 | 未使用的私有变量 |
+|               | WeakWarning | UnusedImports | 3 | 未使用的导入 |
+|               |          | UseVarargs | 6 | 使用了可变长参数 |
+| codestyle | Error | LocalVariableNamingConventions | 1 | 局部变量命名不规范 |
+|               |          | MethodNamingConventions | 4 | 方法命名不规范 |
+|               |          | VariableNamingConventions | 1 | 变量命名不规范 |
+| | Warning | AtLeastOneConstructor | 2 | 类至少有一个构造函数 |
+| | | CommentDefaultAccessModifier | 8 | 成员变量声明默认值 |
+| | | ConfusingTernary | 14 | if判断优先判断的是否定情况 |
+| | | DefaultPackage | 8 | PMD6.25.0修改为deprecated，PM7.0.0之后removed |
+| | | FieldDeclarationsShouldBeAtStartOfClass | 13 | 成员变量的声明应该在类的最开始 |
+| | | LinguisticNaming | 4 | 方法命名与成员变量不符合 |
+| | | LocalVaribaleCouldBeFinal | 154 | 局部变量可以声明为final |
+| | | LongVariable | 235 | 变量名过长 |
+| | | MethodArgumentCouldBeFinal | 283 | 方法参数可以声明为Final |
+| | | OnlyOneReturn | 165 | 一个函数方法应该只有一个Return |
+| | | PrematureDeclaration | 15 | 变量声明应该在用到之前，过早声明可能会报错 |
+| | | ShortVariable | 34 | 变量名过短 |
+| | | UnnecessaryConstructor | 4 | 不需要的构造函数 |
+| | | UseUnderscoresInNumericLiterals | 6 | 使用下划线分隔大数字 |
+| | WeakWarning | ShortClassName | 2 | 过短的类名 |
+| | | UnnecessaryImport | 3 | 没有必要的导入 |
+| | | UselessParentheses | 8 | 无效的括号 |
+| design | Warning | AvoidCatchingGenericException | 18 | 避免捕获父类异常，应该为更具体的异常 |
+| | | CognitiveComplexity | 44 | 函数逻辑过于复杂 |
+| | | CollapsibleIfStatements | 2 | 可以合并的嵌套if条件 |
+| | | CyclomaticComplexity | 46 | 过于复杂的条件判断 |
+| | | DataClass | 1 | 仅包含数据的类，没有方法 |
+| | | ExcessiveClassLength | 2 | 类的长度过长，承担职责过多 |
+| | | ExcessiveMethodLength | 7 | 函数长度过长 |
+| | | ExcessivePublicCount | 2 | 公共成员变量过多 |
+| | | FinalFieldCouldBeStatic | 6 | final修饰的成员变量可以声明为static |
+| | | GodClass | 1 | 类职责过多 |
+| | | LawOfDemeter | 164 | 违反迪米特法则 |
+| | | ModifiedCyclomaticComplexity | 46 | PM7.0.0之后removed，由CyclomaticComplexity实现 |
+| | | NPathComplexity | 19 | 函数的路径复杂度过高 |
+| | | NcssCount | 14 | 违背Non-Comment Source Statement矩阵 |
+| | | NcssMethodCount | 6 | PM7.0.0之后removed，由NcssCount实现 |
+| | | SingularField | 1 | 仅依赖函数参数决定的成员变量应该修改为局部变量 |
+| | | StdCyclomaticComplexity | 46 | PM7.0.0之后removed，由CyclomaticComplexity实现 |
+| | | TooManyFields | 6 | 类的成员变量过多 |
+| | | TooManyMethods | 8 | 类的函数过多 |
+| | | UesUtilityClass | 2 | 使用工具类 |
+| documentation | Warning | CommentRequired | 69 | 成员变量需要注释进行解释 |
+| | | CommentSize | 41 | 注释的大小不合适 |
+| | | UncommentedEmptyConstructor | 4 | 未注释的空构造方法 |
+| | | UncommentedEmptyMethodBody | 1 | 未注释的空函数 |
+| errorprone | Error | ConstructorCallsOverridableMethod | 1 | 在构造函数内调用重写方法 |
+|  |  | ReturnEmptyArrayRatherThanNull | 1 | 返回空数组而不是Null |
+|  |  | ReturnEmptyCollectionRatherThanNull | 1 | 返回空集合而不是Null |
+|  |  | BrokenNull | 2 | null的检查逻辑非法 |
+|  | Warning | AssignmentInOperand | 14 | 在判读语句中进行赋值 |
+|  |  | AvoidDuplicateLiterals | 5 | 字符串变量操作过多，可以声明为局部变量 |
+|  |  | AvoidLiteralsInIfCondition | 62 | 避免在if条件中使用复杂的变量 |
+|  |  | CloseResource | 38 | Java的IO流需要close进行关闭 |
+|  |  | CompareObjectsWithEquals | 1 | 使用equals而不是==来进行判断 |
+|  |  | NullAssignment | 2 | 使用null进行赋值 |
+|  |  | TestClassWithoutTestCases | 1 | Test类没有具体test方法 |
+|  |  | UnnecessaryCaseChange | 4 | 不需要的条件传唤 |
+|  |  | UseEqualsToCompareStrings | 1 | 使用equals而不是==来比较字符串 |
+|  |  | UseLocaleWithCaseConversions | 26 | 使用toLowerCase最好显示指明转换规则 |
+|  | Suggestions | DataflowAnomalyAnalysis | 369 | PMD6.27.0修改为deprecated，PM7.0.0之后removed，由bestpractice/UnusedAssignment实现 |
+| performance | Error | AvoidFileStream | 45 | fileStream会导致JVM的垃圾回收机制暂停，影响效率 |
+|  | Warning | AppendCharacterWithChar | 9 | 单个字符使用单引号而不是双引号 |
+|  |  | AvoidInstantiatingObjectsInLoops | 25 | 避免在循环中重复创建对象 |
+| | | RedundantFieldIntializer | 50 | Java对于基础类型会以默认值进行赋值，如boolean会以false赋值 |
+| | | UseIndexOfChar | 20 | 对于单个字符使用indexOf时以字符而不是字符串传入效率更高 |
+| | | UseStringBufferForStringAppends | 6 | 较长的字符串拼接使用StringBuffer而不是+ |
+
+综合对比，CheckStyle更注重代码样式的优化，对于代码效率关注较少，而PMD在codestyle之外，还关注了performance之类的优化，这一点从报错数量上可以显然的看出来，但PMD中存在大量的重复报错，例如一处代码会同时产生CompareObjectsWithEquals和UseEqualsToCompareStrings两个错误。同时，CheckStyle对于代码样式的优化能力比PMD更好，CheckStyle对于Style的报错数目是多于PMD的codestyle部分且更加细化的。
