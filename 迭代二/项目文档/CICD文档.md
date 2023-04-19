@@ -12,10 +12,10 @@
 
 ## 部署方案
 
-版本控制平台采用 GitHub，CICD 工具采用 Jenkins，更新方式为 GitHub 通过 Webhook 通知 Jenkins.
-
 ```mermaid
 sequenceDiagram
+
+actor User
 
 User ->> GitHub : pr merged into development
 GitHub -->> Jenkins : webhook
@@ -27,9 +27,23 @@ Jenkins ->> GitHub : git fetch
 Jenkins ->> Jenkins : gradle build
 Jenkins ->> Jenkins : gradle release
 Jenkins ->> GitHub : gh release
+Jenkins ->> Docker: docker build
+Docker ->> Docker : build a new image
+Jenkins ->> Docker : docker compose
+Docker ->> Docker : deploy the image
 ```
 
-_⬆️ 基本流程图_ (Mermaid 绘制)
+⬆️ *基本流程图*
+
+- 版本控制平台采用 GitHub
+- CICD 工具采用 Jenkins
+  - 每次 `git push` 时，GitHub 会通过 WebHook 通知 Jenkins 进行 Pipeline 操作
+- Jenkins 操作完后会视分支情况做 `release` 和 `deploy` 操作
+  - `release` 将发布到 GitHub 上
+  - `deploy` 通过 docker 将服务部署在我们的服务器上
+    - 每次部署时会根据 `gradle.properties` 中的应用版本构建新的 image，并将其标记为 `latest`，这样就无需覆盖先前生成的旧版本镜像，在新镜像存在问题的情况下可以快速回滚。
+
+> 出于成本考虑（没钱），我们目前只使用了一台腾讯云 2C4G 服务器，即前端、后端、Jenkins 全都部署在该服务器上。
 
 ### 常设分支
 
@@ -41,7 +55,7 @@ _⬆️ 基本流程图_ (Mermaid 绘制)
 
 2. **`test` 分支**
 
-   测试分支，在 development 分支完成开发后，先合并进 test 分支进行测试部署。
+   测试分支，在 `development` 分支完成开发后，先合并进 `test` 分支进行测试部署。
 
 3. **`master` 分支**
 
