@@ -1,5 +1,45 @@
 # 迭代三过程文档
 
+## 项目构成与部署
+
+
+
+### 项目构成
+
+GitHub 组织页：[SentiSamoyed](https://github.com/SentiSamoyed)
+
+- [**_SentiStrength_**](https://github.com/SentiSamoyed/SentiStrength)：SentiStrength 的核心部分与后端部分
+- [**_SentiStrength-FE_**](https://github.com/SentiSamoyed/SentiStrength-FE)：SentiStrength 的前端部分
+- [**_Issue Tracker_**](https://github.com/SentiSamoyed/IssueTracker)：SentiStrength 的 GitHub Issue 获取服务
+
+### 部署
+
+当前 SentiStrength 部署于 [http://124.223.97.89/](http://124.223.97.89/)
+
+Jenkins 部署于 [http://124.223.97.89:1145/](http://124.223.97.89:1145/)
+
+- 账号：supervisor
+- 密码：nju19020520
+
+### 数据
+
+在数据获取上，我们通过 GitHub API 获取相关数据，并存储于我们的 MySQL 数据库中。
+
+- **访问者账号**
+
+  此账号只有 `SELECT` 权限，可用于查阅数据或以只读模式运行 SentiStrength 后端（需要修改 `application.yml`）
+
+  - 数据库地址：124.223.97.89
+
+  - 端口：3306
+
+  - 用户名：visitor
+
+  - 密码：sentisamoyed
+
+
+- **数据库导出数据**：[数据.zip](https://box.nju.edu.cn/f/8e808e8214f6433b9e50/)
+
 ## 会议记录
 
 - [第一次会议-May.6.md](会议记录/第一次会议-May.6.md)
@@ -10,14 +50,9 @@
 
 - [迭代三任务安排.md](迭代三任务安排.md)
 
-## PRD
+## 开发过程文档
 
+- [论文笔记.md](论文笔记/论文笔记.md)
 - [需求规格说明文档.md](需求规格说明文档.md)
-
-## 论文笔记
-
-- [论文笔记.md](论文笔记/论文笔记.md) 
-
-## 接口文档
-
-- [接口文档.md](接口文档.md) 
+- [接口文档.md](接口文档.md)
+- [前端标注方案.md](前端标注方案.md)

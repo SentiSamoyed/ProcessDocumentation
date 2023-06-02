@@ -82,7 +82,7 @@ Jenkins 会针对不同分支的更新，自动完成不同的 pipeline stage：
 
 ### Jenkins 账号
 
-- 地址：http://124.223.97.89:8080/
+- 地址：http://124.223.97.89:1145/
 - 账号：supervisor
 - 密码：nju19020520
 
