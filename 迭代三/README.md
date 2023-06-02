@@ -39,6 +39,7 @@ Jenkins 部署于 [http://124.223.97.89:1145/](http://124.223.97.89:1145/)
 
 - **数据库导出数据**：[数据.zip](https://box.nju.edu.cn/f/8e808e8214f6433b9e50/)
 - **标注后的数据**：[标注数据](https://box.nju.edu.cn/f/3b9ef58b9f7f42caa545/)
+- **前端展示中间数据**：[数据标注下载](https://box.nju.edu.cn/d/67d6999d1ba54d76a56a/)
 
 ## 会议记录
 
