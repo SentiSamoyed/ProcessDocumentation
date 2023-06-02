@@ -10,19 +10,21 @@
 
 ### 基本功能
 
-详见 [前端设计文档.md](其他文件/前端设计文档.md) 
+详见 [前端设计文档.md](其他文件/前端设计文档.md)
 
 我们的系统支持以下功能：
 
 - 自由添加 Repo 进行分析
-  
+
   <img src="./assets/image-20230602165745303.png" alt="image-20230602165745303" style="zoom:25%;" />
-  
+
   > Note: 不支持关闭了 Issue 功能的 Repo，如 Apache/Flink
+
 - 自动分析 Repo Issues 的情绪分值
 - 选择 Releases 展示一个 Repo 的总体情绪情况、各情绪分值占比
 
   <img src="./assets/image-20230602165715159.png" alt="image-20230602165715159" style="zoom:25%;" />
+
 - 以月、季度、年、Release 为单位，展示该 Repo 的历史情绪分值正负比例、平均分值、分值总和变化趋势图
 
   <img src="./assets/image-20230602165905237.png" alt="image-20230602165905237" style="zoom:25%;" />
@@ -41,7 +43,7 @@
 4. IssueTracker 工作完成后，前端再次请求后端，后端服务发现数据库表更新，开始对该 Repo 所有的 Issues 进行情绪分析，分析完毕后写入数据库中，最后返回 DONE 给前端；
 5. 此时数据初始化完成，后端可返回各类数据给前端。
 
-其中初始化的详细流程如下所示，还可以参考 [接口文档.md](其他文件/接口文档.md) 
+其中初始化的详细流程如下所示，还可以参考 [接口文档.md](其他文件/接口文档.md)
 
 ```mermaid
 sequenceDiagram
