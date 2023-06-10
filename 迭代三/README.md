@@ -1,5 +1,11 @@
 # 迭代三过程文档
 
+## 答辩文档
+
+- [Keynote 幻灯片](SentiStrength-3.key)
+- [导出 PDF 幻灯片](SentiStrength-3.pdf)
+- [内嵌演示视频 (NJU BOX)](https://box.nju.edu.cn/f/e8e3462ea59e45a29560/)
+
 ## 项目设计、构成与部署
 
 - [设计考虑与 step3 展示.md](设计考虑与step3展示.md)
